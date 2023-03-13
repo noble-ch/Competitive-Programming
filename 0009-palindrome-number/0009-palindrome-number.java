@@ -8,12 +8,21 @@
 class Solution {
     public boolean isPalindrome(int x) {
         
-    // convert integer to string
-    String s = Integer.toString(x);
-    // compare string with its reverse
-    return s.equals(new StringBuilder(s).reverse().toString());
-
+    
+    // handle negative numbers and numbers ending in 0
+    if (x < 0 || (x != 0 && x % 10 == 0)) {
+        return false;
     }
+    int reversed = 0;
+    while (x > reversed) {
+        reversed = reversed * 10 + x % 10;
+        x /= 10;
+    }
+    // handle even-length and odd-length palindromes
+    return x == reversed || x == reversed / 10;
+}
+
+    
 
 }
 // @lc code=end
