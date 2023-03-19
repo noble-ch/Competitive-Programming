@@ -10,8 +10,9 @@
  */
 class Solution {
       public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        ListNode merged = new ListNode(0);
-        ListNode tail = merged;
+        ListNode dummy = new ListNode(0);
+        ListNode tail = dummy;
+        
         while (list1 != null && list2 != null) {
             if (list1.val <= list2.val) {
                 tail.next = list1;
@@ -30,6 +31,6 @@ class Solution {
             tail.next = list2;
         }
         
-        return merged.next;
+        return dummy.next;
     }
 }
